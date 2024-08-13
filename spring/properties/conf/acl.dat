@@ -1,0 +1,5 @@
+#SSO ACL
+#/- ; cert-based 
+#/- ; form-based
+#/- ; otp-based
+#/sso/index.jsp ; form-based

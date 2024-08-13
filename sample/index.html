@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSO Sample Page</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/customstorage.js"></script>
+    <script src="./js/ssocheck.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] 
+        {
+            width: 100%;
+            height: 30px;
+            margin-bottom: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 150px;
+            height: 40px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+			width: 100%;
+		}
+		tr td:first-child {
+		    width: 120px;
+		}
+    </style>
+</head>
+<body>
+    <h1>SSO Agent Sample Page</h1>
+
+    <div class="button-group">
+        <button onclick="makeSSOReq()">Make SSO Request</button>
+        <button onclick="verifyToken()">Verify Token</button>
+        <button onclick="invalidateToken()">Invalidate Token</button>
+        <button onclick="KSign_Agent_LiveCheck()">Agent Live Check</button>
+    </div>
+    <br>
+    <table>
+		<tr>
+			<td>key id</td>
+			<td><input id="keyId" type="text"></td>
+		</tr>
+		<!-- 	
+		<tr>
+			<td>encryptedToken</td>
+			<td><input id="encryptedToken" type="text"></td>
+		</tr>
+		 -->
+		<tr>
+			<td>AM</td>
+			<td><input id="AM" type="text"></td>
+		</tr>
+		<tr>
+			<td>UID</td>
+			<td><input id="UID" type="text"></td>
+		</tr>
+		<tr>
+			<td>AccessToken</td>
+			<td><input id="access_token" type="text"></td>
+		</tr>
+		<!-- 
+		<tr>
+			<td>Name</td>
+			<td><input id="name" type="text"></td>
+		</tr>
+		 -->
+	</table>
+</body>
+</html>
