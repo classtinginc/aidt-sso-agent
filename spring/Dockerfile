@@ -6,11 +6,11 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /app
 
-COPY ksignaccess-spring-agent-dev-0.0.6-RELEASE.war .
+COPY ksignaccess-spring-agent-dev-0.0.6-RELEASE-REDIS.war .
 
 COPY properties /app/properties
 
-ENV APP=/app/ksignaccess-spring-agent-dev-0.0.6-RELEASE.war
+ENV APP=/app/ksignaccess-spring-agent-dev-0.0.6-RELEASE-REDIS.war
 
 ENV SPRING_CONFIG=/app/properties/application.properties
 
