@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf  # redis.conf 파일을 사용
+      - redis-data:/data
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]  # Redis 서버를 구성 파일로 실행
+    networks:
+      - app-network
+
+  spring:
+    image: aidt-container-registry.ncr.gov-ntruss.com/sso-agent-spring:v0.0.91
+    container_name: sso-agent-spring
+    ports:
+      - "8084:8084"
+    depends_on:
+      - redis
+    networks:
+      - app-network
+
+  nginx:
+    image: aidt-container-registry.ncr.gov-ntruss.com/sso-agent-js:v0.0.91
+    container_name: sso-agent-js
+    ports:
+      - "80:80"
+    depends_on:
+      - spring
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
