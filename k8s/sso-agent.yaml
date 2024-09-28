@@ -68,12 +68,40 @@ spec:
       - name: ncloud-reg-cred
       containers:
       - name: sso-agent-js
-        image: aidt-container-registry-stag.ncr.gov-ntruss.com/sso-agent-js:v0.3
+        image: aidt-container-registry-stag.ncr.gov-ntruss.com/sso-agent-js:v0.0.91
         imagePullPolicy: Always
         ports:
         - containerPort: 80
       - name: sso-agent-spring
-        image: aidt-container-registry-stag.ncr.gov-ntruss.com/sso-agent-spring:v0.3
+        image: aidt-container-registry-stag.ncr.gov-ntruss.com/sso-agent-spring:v0.0.91-REDIS
         imagePullPolicy: Always
         ports:
         - containerPort: 8084
+        startupProbe:
+          httpGet:
+            path: /liveCheckRequest
+            port: 80
+          initialDelaySeconds: 3
+          failureThreshold: 10
+          periodSeconds: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /liveCheckRequest
+            port: 80
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /liveCheckRequest
+            port: 80
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
+
