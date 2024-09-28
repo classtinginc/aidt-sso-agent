@@ -9,7 +9,7 @@ const SERVER_HOST = "https://sso.aidtbook.kr";
 const LOCAL_URL = removeAllQueryParametersAndReturn(location.href);
 
 /* if LOG_OUT_URL IS NULL Then Don't Move Page */
-const LOG_OUT_URL = "https://sso.aidtbook.kr/sso/pmi-logout-url.jsp?returl=http://ks.local.com:9002/sso/index.html";
+const LOG_OUT_URL = "https://sso.aidtbook.kr/sso/pmi-logout-url.jsp?returl=https://sso.classting.aidt.school/sso/index.html";
 const returlParam = "?uuid=test";
 const customstorage = new LocalStorageDTO();
 /**
