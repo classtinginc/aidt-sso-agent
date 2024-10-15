@@ -30,7 +30,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: sso.classting.aidt.school
+  - host: sso.qa.aidt.school
     http:
       paths:
       - backend:
@@ -42,7 +42,7 @@ spec:
         pathType: ImplementationSpecific
   tls:
     - hosts:
-      - sso.classting.aidt.school
+      - sso.qa.aidt.school
       secretName: sso-agent-endpoint-cert
 
 ---
@@ -67,12 +67,12 @@ spec:
       - name: ncloud-reg-cred
       containers:
       - name: sso-agent-js
-        image: aidt-classting.ncr.gov-ntruss.com/sso-agent-js:v0.0.91
+        image: aidt-tst.ncr.gov-ntruss.com/sso-agent-js:v0.0.91-qa
         imagePullPolicy: Always
         ports:
         - containerPort: 80
       - name: sso-agent-spring
-        image: aidt-classting.ncr.gov-ntruss.com/sso-agent-spring:v0.0.91-REDIS
+        image: aidt-tst.ncr.gov-ntruss.com/sso-agent-spring:v0.0.91-REDIS-qa
         imagePullPolicy: Always
         ports:
         - containerPort: 8084

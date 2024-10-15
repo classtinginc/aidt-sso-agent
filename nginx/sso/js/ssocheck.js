@@ -3,13 +3,13 @@
  */
 
 /* SSO Server, Agent Url Settings */
-const AGENT_HOST = "https://sso.classting.aidt.school";
-const SERVER_HOST = "https://sso.aidtbook.kr";
+const AGENT_HOST = "https://sso.qa.aidt.school";
+const SERVER_HOST = "https://sdv.aidtbook.kr";
 
 const LOCAL_URL = removeAllQueryParametersAndReturn(location.href);
 
 /* if LOG_OUT_URL IS NULL Then Don't Move Page */
-const LOG_OUT_URL = "https://sso.aidtbook.kr/sso/pmi-logout-url.jsp?returl=https://sso.classting.aidt.school/sso/index.html";
+const LOG_OUT_URL = "https://sdv.aidtbook.kr/sso/pmi-logout-url.jsp?returl=https://sso.qa.aidt.school/sso/index.html";
 const returlParam = "?uuid=test";
 const customstorage = new LocalStorageDTO();
 /**
