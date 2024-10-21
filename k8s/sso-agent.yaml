@@ -67,12 +67,12 @@ spec:
       - name: ncloud-reg-cred
       containers:
       - name: sso-agent-js
-        image: aidt-tst.ncr.gov-ntruss.com/sso-agent-js:v0.0.91-qa
+        image: aidt-prod.ncr.gov-ntruss.com/sso-agent-js:v0.0.91
         imagePullPolicy: Always
         ports:
         - containerPort: 80
       - name: sso-agent-spring
-        image: aidt-tst.ncr.gov-ntruss.com/sso-agent-spring:v0.0.91-REDIS-qa
+        image: aidt-prod.ncr.gov-ntruss.com/sso-agent-spring:v0.0.91-REDIS
         imagePullPolicy: Always
         ports:
         - containerPort: 8084
